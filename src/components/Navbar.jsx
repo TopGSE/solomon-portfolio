@@ -16,17 +16,30 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
+
+    // Disable body scroll when menu is open
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      document.body.style.overflow = "";
     };
-  }, []);
+  }, [menuOpen]);
 
   const handleNavClick = () => {
     setMenuOpen(false);
   };
 
   return (
-    <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+    <nav
+      className={`navbar ${scrolled ? "scrolled" : ""} ${
+        menuOpen ? "menu-open" : ""
+      }`}
+    >
       <div className="container nav-container">
         <Link to="/" className="logo" onClick={handleNavClick}>
           Solomon
@@ -35,10 +48,11 @@ function Navbar() {
         <div
           className={`menu-toggle ${menuOpen ? "active" : ""}`}
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle navigation menu"
         >
-          <div className="bar"></div>
-          <div className="bar"></div>
-          <div className="bar"></div>
+          <span className="bar"></span>
+          <span className="bar"></span>
+          <span className="bar"></span>
         </div>
 
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
@@ -61,17 +75,29 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link to="/projects" onClick={handleNavClick}>
+            <Link
+              to="/projects"
+              onClick={handleNavClick}
+              className={location.pathname === "/projects" ? "active" : ""}
+            >
               Projects
             </Link>
           </li>
           <li>
-            <Link to="/skills" onClick={handleNavClick}>
+            <Link
+              to="/skills"
+              onClick={handleNavClick}
+              className={location.pathname === "/skills" ? "active" : ""}
+            >
               Skills
             </Link>
           </li>
           <li>
-            <Link to="/contact" onClick={handleNavClick}>
+            <Link
+              to="/contact"
+              onClick={handleNavClick}
+              className={location.pathname === "/contact" ? "active" : ""}
+            >
               Contact
             </Link>
           </li>
