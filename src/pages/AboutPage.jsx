@@ -1,9 +1,14 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 
 function AboutPage() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
+
+  // Add this state to track if the modal is open
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const emailInputRef = useRef(null);
 
   useEffect(() => {
     // Enable animation when component mounts
@@ -19,6 +24,120 @@ function AboutPage() {
       // Clean up
     };
   }, []);
+
+  const handleCVRequest = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleSubmitEmail = (e) => {
+    e.preventDefault();
+    const email = emailInputRef.current.value;
+
+    // Email validation
+    if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+      // Use our custom toast instead of react-toastify
+      window.showToast("Please enter a valid email address", "error");
+      return;
+    }
+
+    // Here you would typically save the email to send the CV later
+    // For now, just show a success message
+    window.showToast("Thank you! I'll send you my CV as soon as it's ready.", "success");
+    setIsModalOpen(false);
+  };
+
+  // Add this to your AboutPage component - modify the CTA section
+  const renderCVButton = () => (
+    <a href="#" onClick={handleCVRequest} className="btn btn-primary">
+      <span>Download CV</span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+        <polyline points="7 10 12 15 17 10"></polyline>
+        <line x1="12" y1="15" x2="12" y2="3"></line>
+      </svg>
+    </a>
+  );
+
+  // Add this modal to your component's JSX
+  const renderCVRequestModal = () => (
+    <div className={`cv-request-modal ${isModalOpen ? "active" : ""}`}>
+      <div className="modal-backdrop" onClick={handleCloseModal}></div>
+      <div className="modal-content">
+        <button className="modal-close" onClick={handleCloseModal}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <h3>CV Coming Soon</h3>
+        <p>
+          My CV is currently being updated. Leave your email and I'll send it to
+          you when it's ready!
+        </p>
+
+        <form onSubmit={handleSubmitEmail} className="cv-form">
+          <div className="form-group">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              ref={emailInputRef}
+              placeholder="Your email address"
+              required
+            />
+          </div>
+          <button type="submit" className="btn btn-primary">
+            <span>Notify Me</span>
+          </button>
+        </form>
+
+        <div className="modal-alternative">
+          <p>Or check out my skills and projects:</p>
+          <div className="modal-links">
+            <Link
+              to="/skills"
+              onClick={handleCloseModal}
+              className="modal-link"
+            >
+              View Skills
+            </Link>
+            <Link
+              to="/projects"
+              onClick={handleCloseModal}
+              className="modal-link"
+            >
+              See Projects
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <>
@@ -138,25 +257,8 @@ function AboutPage() {
                   </div>
 
                   <div className="about-cta">
-                    <a href="/contact" className="btn btn-primary">
-                      <span>Download CV</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                        <polyline points="7 10 12 15 17 10"></polyline>
-                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                      </svg>
-                    </a>
-                    <a href="/" className="btn btn-outline">
+                    {renderCVButton()}
+                    <a href="/contact" className="btn btn-outline">
                       <span>Back to Home</span>
                     </a>
                   </div>
@@ -166,6 +268,7 @@ function AboutPage() {
           </div>
         </section>
       </div>
+      {renderCVRequestModal()}
     </>
   );
 }

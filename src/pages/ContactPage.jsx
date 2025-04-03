@@ -57,6 +57,7 @@ function ContactPage() {
 
     if (!validateForm()) {
       setFormError(true);
+      window.showToast("Error message", "error");
       setTimeout(() => {
         setFormError(false);
       }, 3000);
@@ -72,6 +73,7 @@ function ContactPage() {
         subject: "",
         message: "",
       });
+      window.showToast("Message sent successfully!", "success");
 
       // Reset form submission status after 5 seconds
       setTimeout(() => {

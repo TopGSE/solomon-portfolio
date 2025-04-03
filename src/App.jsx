@@ -6,6 +6,7 @@ import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import SkillsPage from "./pages/SkillsPage";
 import Navbar from "./components/Navbar";
+import ToastContainer from "./components/ToastContainer"; // Import our custom ToastContainer
 import "./App.css";
 
 // Page transition component
@@ -131,6 +132,7 @@ function App() {
           </div>
         </div>
       </footer>
+      <ToastContainer /> {/* Our custom toast container */}
     </BrowserRouter>
   );
 }
