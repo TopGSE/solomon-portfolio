@@ -1,0 +1,142 @@
+:root {
+	/* Updated modern color palette */
+	--primary-color: #5448C8;
+	/* Rich purple - musical, creative */
+	--primary-dark: #3D2F96;
+	--secondary-color: #00D5C0;
+	/* Teal accent */
+	--text-primary: #111827;
+	--text-secondary: #4B5563;
+	--bg-primary: #FFFFFF;
+	--bg-secondary: #F9FAFB;
+	--accent-color: #FF7D3B;
+	/* Warm orange accent */
+	--gradient-1: linear-gradient(135deg, #5448C8 0%, #9F91F0 100%);
+	--gradient-2: linear-gradient(135deg, #00D5C0 0%, #5CFFE7 100%);
+
+	/* Typography */
+	--font-family: 'Poppins', system-ui, sans-serif;
+
+	/* Spacing */
+	--spacing-xs: 0.25rem;
+	--spacing-sm: 0.5rem;
+	--spacing-md: 1rem;
+	--spacing-lg: 1.5rem;
+	--spacing-xl: 2rem;
+	--spacing-xxl: 3rem;
+
+	/* Container width */
+	--container-width: 1300px;
+
+	/* Transitions */
+	--transition-normal: 0.3s ease;
+	--transition-smooth: 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	scroll-behavior: smooth;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: var(--font-family);
+	color: var(--text-primary);
+	background-color: var(--bg-primary);
+	line-height: 1.6;
+}
+
+a {
+	color: var(--primary-color);
+	text-decoration: none;
+	transition: color var(--transition-normal);
+}
+
+a:hover {
+	color: var(--primary-dark);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.2;
+	margin-bottom: var(--spacing-md);
+	font-weight: 600;
+}
+
+h1 {
+	font-size: 2.5rem;
+}
+
+h2 {
+	font-size: 2rem;
+}
+
+h3 {
+	font-size: 1.5rem;
+}
+
+p {
+	margin-bottom: var(--spacing-md);
+}
+
+button {
+	font-family: var(--font-family);
+	background-color: var(--primary-color);
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 0.6em 1.2em;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color var(--transition-normal);
+}
+
+button:hover {
+	background-color: var(--primary-dark);
+}
+
+section {
+	padding: var(--spacing-xxl) 0;
+}
+
+/* Update the container class */
+.container {
+	width: 100%;
+	max-width: 100%;
+	margin: 0 auto;
+	padding: 0 var(--spacing-lg);
+}
+
+/* Add a new class for content that needs width constraints */
+.content-container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: 0 var(--spacing-lg);
+}
+
+.container {
+	max-width: var(--container-width);
+	margin: 0 auto;
+	padding: 0 var(--spacing-lg);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--text-primary: #F9FAFB;
+		--text-secondary: #E5E7EB;
+		--bg-primary: #121212;
+		--bg-secondary: #1F2937;
+	}
+}
