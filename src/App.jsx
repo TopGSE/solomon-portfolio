@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 import ProjectsPage from "./pages/ProjectsPage";
+import SkillsPage from "./pages/SkillsPage";
 import Navbar from "./components/Navbar";
 import "./App.css";
 
@@ -82,6 +83,14 @@ function App() {
           element={
             <PageTransition>
               <ProjectsPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/skills"
+          element={
+            <PageTransition>
+              <SkillsPage />
             </PageTransition>
           }
         />
