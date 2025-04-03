@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -74,6 +75,14 @@ function App() {
           element={
             <PageTransition>
               <AboutPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <PageTransition>
+              <ContactPage />
             </PageTransition>
           }
         />
