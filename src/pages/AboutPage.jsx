@@ -47,7 +47,10 @@ function AboutPage() {
 
     // Here you would typically save the email to send the CV later
     // For now, just show a success message
-    window.showToast("Thank you! I'll send you my CV as soon as it's ready.", "success");
+    window.showToast(
+      "Thank you! I'll send you my CV as soon as it's ready.",
+      "success"
+    );
     setIsModalOpen(false);
   };
 
@@ -258,9 +261,9 @@ function AboutPage() {
 
                   <div className="about-cta">
                     {renderCVButton()}
-                    <a href="/contact" className="btn btn-outline">
+                    <Link to="/" className="btn btn-outline">
                       <span>Back to Home</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

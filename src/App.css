@@ -2689,7 +2689,7 @@ body {
 }
 
 .form-group input:focus,
-.form-group textarea:focus {
+form-group textarea:focus {
 	outline: none;
 	border-color: var(--primary-color);
 	box-shadow: 0 0 0 3px rgba(84, 72, 200, 0.1);
@@ -3667,7 +3667,7 @@ body {
 .skill-list {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-md);
+	gap: var (--spacing-md);
 }
 
 .skill-item-new {
@@ -4434,4 +4434,233 @@ body {
 .toast-close:hover {
 	color: var(--text-primary);
 	background-color: transparent;
+}
+
+/* Updated CV Request Modal Styles for better mobile display */
+.cv-request-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.cv-request-modal.active {
+	opacity: 1;
+	visibility: visible;
+}
+
+.modal-backdrop {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(5px);
+}
+
+.modal-content {
+	position: relative;
+	width: 90%;
+	max-width: 450px;
+	background-color: var(--card-bg);
+	border-radius: 12px;
+	padding: 2rem;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+	z-index: 1001;
+	transform: translateY(20px);
+	opacity: 0;
+	animation: modalAppear 0.3s forwards 0.1s;
+	margin: 0 1rem;
+	overflow-y: auto;
+	max-height: 90vh;
+}
+
+@keyframes modalAppear {
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.modal-close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: transparent;
+	border: none;
+	color: var(--text-secondary);
+	cursor: pointer;
+	padding: 8px;
+	transition: color 0.3s ease;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 32px;
+	height: 32px;
+}
+
+.modal-close:hover {
+	color: var(--text-primary);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+.modal-content h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+	color: var(--text-primary);
+	padding-right: 2rem;
+	/* Make room for close button */
+}
+
+.modal-content p {
+	color: var(--text-secondary);
+	margin-bottom: 1.5rem;
+	line-height: 1.6;
+	font-size: 0.95rem;
+}
+
+.cv-form {
+	margin-bottom: 1.5rem;
+}
+
+.cv-form .form-group {
+	margin-bottom: 1.2rem;
+}
+
+.cv-form label {
+	display: block;
+	margin-bottom: 0.5rem;
+	font-weight: 500;
+	color: var(--text-primary);
+}
+
+.cv-form input {
+	width: 100%;
+	padding: 1rem;
+	border-radius: 8px;
+	border: 1.5px solid var(--border-color);
+	background-color: var(--input-bg);
+	color: var(--text-primary);
+	font-size: 1rem;
+	transition: all 0.3s ease;
+}
+
+.cv-form input:focus {
+	border-color: var(--primary-color);
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(123, 102, 255, 0.2);
+}
+
+.cv-form .btn {
+	width: 100%;
+	margin-top: 0.5rem;
+	padding: 1rem;
+	font-size: 1rem;
+}
+
+.modal-alternative {
+	border-top: 1px solid var(--border-color);
+	padding-top: 1.5rem;
+	text-align: center;
+	margin-top: 1rem;
+}
+
+.modal-alternative p {
+	margin-bottom: 1rem;
+	font-size: 0.95rem;
+}
+
+.modal-links {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.modal-link {
+	color: var(--primary-color);
+	font-weight: 500;
+	text-decoration: underline;
+	transition: color 0.3s ease;
+	padding: 0.5rem;
+}
+
+.modal-link:hover {
+	color: var(--primary-dark);
+}
+
+/* Improved responsive adjustments */
+@media (max-width: 480px) {
+	.modal-content {
+		padding: 1.75rem 1.25rem;
+		width: 95%;
+		border-radius: 10px;
+		margin: 0 0.5rem;
+	}
+
+	.modal-close {
+		top: 10px;
+		right: 10px;
+	}
+
+	.modal-content h3 {
+		font-size: 1.3rem;
+	}
+
+	.cv-form input {
+		padding: 0.875rem;
+	}
+
+	.modal-links {
+		flex-direction: row;
+		/* Keep links in a row for better mobile layout */
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+
+	.modal-link {
+		padding: 0.5rem 1rem;
+		margin: 0 0.25rem;
+	}
+}
+
+/* Fix for iPhone smaller screens */
+@media (max-width: 375px) {
+	.modal-content {
+		padding: 1.5rem 1rem;
+	}
+
+	.cv-form .btn {
+		padding: 0.875rem;
+	}
+}
+
+/* Fix for landscape orientation on mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+	.modal-content {
+		max-height: 85vh;
+		padding: 1.5rem;
+	}
+
+	.modal-content h3 {
+		font-size: 1.2rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.modal-content p {
+		margin-bottom: 1rem;
+	}
+
+	.cv-form .form-group {
+		margin-bottom: 0.75rem;
+	}
 }
