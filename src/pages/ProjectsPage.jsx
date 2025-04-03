@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import projectImg1 from "../assets/images/portfolio-thumbnail.jpg";
 import projectImg2 from "../assets/images/emanuel-church-thumbnail.jpg";
+import projectImg3 from "../assets/images/piano-with-solomon-thumbnail.jpg";
 
 function ProjectsPage() {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +54,7 @@ function ProjectsPage() {
       title: "Piano With Solomon",
       description:
         "A platform dedicated to piano lessons and music education, showcasing musical compositions and teaching resources.",
-      image: projectImg2, // You should add a proper image for this project
+      image: projectImg3, // You should add a proper image for this project
       url: "https://www.pianowithsolomon.be",
       github: null,
       tags: ["Music", "Education", "Piano", "Web Design"],
