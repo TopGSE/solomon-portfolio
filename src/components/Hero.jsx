@@ -79,6 +79,12 @@ function Hero() {
     navigate("/about");
   };
 
+  // Navigate to Projects page
+  const navigateToProjects = (e) => {
+    e.preventDefault();
+    navigate("/projects");
+  };
+
   return (
     <section id="home" className="hero-section">
       <canvas ref={audioVisualizerRef} className="audio-visualizer"></canvas>
@@ -104,7 +110,11 @@ function Hero() {
           </p>
 
           <div className="hero-cta">
-            <a href="#projects" className="btn btn-primary">
+            <a
+              href="/projects"
+              className="btn btn-primary"
+              onClick={navigateToProjects}
+            >
               <span>Explore My Work</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
