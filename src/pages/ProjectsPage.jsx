@@ -43,7 +43,7 @@ function ProjectsPage() {
       description:
         "A website for Emanuel Church in Belgium featuring service times, events, and community information.",
       image: projectImg2,
-      url: "https://emanuelchurchbg.be",
+      url: "",
       github: null, // No public GitHub repo for this one
       tags: ["HTML", "CSS", "JavaScript", "WordPress"],
       category: "web",
