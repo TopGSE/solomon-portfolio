@@ -4147,3 +4147,52 @@ body {
 		justify-content: center;
 	}
 }
+
+/* Update section headers for Projects, Skills, and Contact pages on mobile */
+@media (max-width: 768px) {
+
+	/* Global adjustment for section headers on mobile */
+	.section-header {
+		margin-top: 2rem;
+	}
+
+	/* Specific adjustments for each page */
+	.projects-section .section-header,
+	.skills-section .section-header,
+	.skills-section-new .section-header,
+	.skills-section-alt .section-header,
+	.contact-section .section-header {
+		margin-top: 3rem;
+	}
+
+	/* Make sure full-page sections have appropriate padding */
+	.full-page {
+		padding-top: 80px;
+	}
+}
+
+@media (max-width: 480px) {
+
+	/* Increase margin on smaller devices */
+	.projects-section .section-header,
+	.skills-section .section-header,
+	.skills-section-new .section-header,
+	.skills-section-alt .section-header,
+	.contact-section .section-header {
+		margin-top: 3.5rem;
+	}
+
+	/* Adjust content container top margin */
+	.projects-section .content-container,
+	.skills-section .content-container,
+	.skills-section-new .content-container,
+	.skills-section-alt .content-container,
+	.contact-section .content-container {
+		margin-top: 0;
+	}
+
+	/* Further refinement for the section headers */
+	.section-header h2 {
+		margin-top: 1rem;
+	}
+}
