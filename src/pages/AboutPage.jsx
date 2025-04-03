@@ -12,17 +12,16 @@ function AboutPage() {
     // Scroll to top when page loads
     window.scrollTo(0, 0);
 
-    // Add page transition class to body
-    document.body.classList.add("page-transition");
+    // Make sure scrolling is enabled
+    document.body.style.overflow = "auto";
 
     return () => {
-      document.body.classList.remove("page-transition");
+      // Clean up
     };
   }, []);
 
   return (
     <>
-      <Navbar />
       <div className="page-container">
         <section
           id="about"
@@ -64,31 +63,12 @@ function AboutPage() {
                       believe great software, like great music, requires both
                       technical excellence and creative problem-solving.
                     </p>
-
-                    <div className="about-highlights">
-                      <div className="highlight-item">
-                        <div className="highlight-icon">
-                          <span className="music-code-icon">♪&lt;/&gt;</span>
-                        </div>
-                        <div className="highlight-content">
-                          <h4>Dual Expertise</h4>
-                          <p>
-                            Bringing together technical knowledge with musical
-                            creativity
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="highlight-item">
-                        <div className="highlight-icon">
-                          <span className="music-code-icon">⚡</span>
-                        </div>
-                        <div className="highlight-content">
-                          <h4>Modern Solutions</h4>
-                          <p>Creating efficient and elegant applications</p>
-                        </div>
-                      </div>
-                    </div>
+                    <p>
+                      When I'm not coding, you'll find me exploring new
+                      technologies, contributing to open-source projects, or
+                      composing music to maintain the perfect balance between
+                      technical and creative pursuits.
+                    </p>
                   </div>
                 </div>
 
@@ -104,6 +84,7 @@ function AboutPage() {
                         <h5>Development</h5>
                         <div className="skill-tags">
                           <span className="skill-tag">React</span>
+                          <span className="skill-tag">C#/.NET</span>
                           <span className="skill-tag">JavaScript</span>
                           <span className="skill-tag">Node.js</span>
                           <span className="skill-tag">TypeScript</span>

@@ -17,8 +17,8 @@ function Navbar() {
 
     window.addEventListener("scroll", handleScroll);
 
-    // Disable body scroll when menu is open
-    if (menuOpen) {
+    // Modified: Only disable scrolling when menu is open on mobile
+    if (menuOpen && window.innerWidth <= 768) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
@@ -26,12 +26,13 @@ function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.body.style.overflow = "";
+      document.body.style.overflow = ""; // Always enable scrolling when component unmounts
     };
   }, [menuOpen]);
 
   const handleNavClick = () => {
     setMenuOpen(false);
+    document.body.style.overflow = ""; // Ensure scrolling is enabled after nav click
   };
 
   return (

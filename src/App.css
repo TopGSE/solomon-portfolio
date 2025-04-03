@@ -421,10 +421,8 @@
 	background-color: var(--bg-secondary);
 	padding: var(--spacing-xxl) 0;
 	position: relative;
-	overflow: hidden;
-	margin-top: 0;
-	position: relative;
-	z-index: 2;
+	overflow: visible;
+	margin-bottom: var(--spacing-xl);
 }
 
 /* About Section - Updated Design with modern layout */
@@ -432,7 +430,7 @@
 	background-color: var(--bg-secondary);
 	padding: var(--spacing-xxl) 0;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 }
 
 .about-wrapper {
@@ -492,54 +490,16 @@
 	font-weight: 500;
 }
 
-.about-bio-content p {
-	color: var(--text-secondary);
-	line-height: 1.7;
-}
-
-/* New highlight features */
-.about-highlights {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: var(--spacing-lg);
-	margin-top: var(--spacing-xl);
-}
-
-.highlight-item {
+.about-bio-content {
 	display: flex;
-	align-items: flex-start;
+	flex-direction: column;
 	gap: var(--spacing-md);
 }
 
-.highlight-icon {
-	width: 50px;
-	height: 50px;
-	border-radius: 12px;
-	background: var(--gradient-1);
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-shrink: 0;
-	box-shadow: 0 6px 15px rgba(84, 72, 200, 0.15);
-}
-
-.music-code-icon {
-	color: white;
-	font-size: 1.4rem;
-	font-weight: bold;
-	line-height: 1;
-}
-
-.highlight-content h4 {
-	margin-bottom: var(--spacing-xs);
-	font-size: 1.1rem;
-	color: var(--text-primary);
-}
-
-.highlight-content p {
-	margin-bottom: 0;
-	font-size: 0.95rem;
+.about-bio-content p {
 	color: var(--text-secondary);
+	line-height: 1.8;
+	margin-bottom: 0;
 }
 
 /* Details container styling */
@@ -715,10 +675,6 @@
 		border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 		padding-bottom: var(--spacing-xl);
 	}
-
-	.about-highlights {
-		grid-template-columns: 1fr;
-	}
 }
 
 @media (max-width: 768px) {
@@ -744,20 +700,6 @@
 		margin-bottom: var(--spacing-xs);
 	}
 }
-
-/* Remove about-visual related styles */
-/* The following styles are removed:
-.about-visual
-.about-image-wrapper
-.image-placeholder
-.about-decoration
-.note-symbol
-.code-symbol
-.experience-badge
-@keyframes pulseScale
-.experience-years
-.experience-text
-*/
 
 .about-info {
 	display: flex;
@@ -1170,6 +1112,7 @@
 	margin: 0 auto;
 	padding: 0 var(--spacing-lg);
 	width: 100%;
+	margin-top: 3rem;
 }
 
 /* New Hero Section Styling */
@@ -2156,7 +2099,7 @@
 	background-color: var(--bg-secondary);
 	padding: var(--spacing-xxl) 0;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 	margin-top: 0;
 	position: relative;
 	z-index: 2;
@@ -2196,7 +2139,9 @@ html {
 /* Page Transitions */
 .page-transition {
 	position: relative;
-	transition: opacity 0.4s ease, transform 0.4s ease;
+	width: 100%;
+	min-height: 100vh;
+	transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .page-transition.fadeIn {
@@ -2236,19 +2181,19 @@ html {
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
 	position: relative;
+	overflow: visible;
 }
 
 .full-page {
-	padding-top: 100px;
-	/* Account for navbar */
-	min-height: calc(100vh - 100px);
-	/* Full page minus navbar and padding */
+	padding-top: 120px;
+	/* Increased from 100px to create more space */
+	min-height: calc(100vh - 120px);
+	/* Adjusted to match the new padding */
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
 	position: relative;
+	overflow: visible;
 }
 
 /* Active nav link styling */
@@ -2446,5 +2391,67 @@ html {
 	.nav-links {
 		width: 85%;
 		padding: 2rem 1rem;
+	}
+}
+
+/* Fix for body scroll locking */
+body {
+	overflow-y: auto !important;
+}
+
+/* Add better spacing for the About page title */
+.full-page {
+	padding-top: 120px;
+	/* Increased from 100px to create more space */
+	min-height: calc(100vh - 120px);
+	/* Adjusted to match the new padding */
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	overflow: visible;
+}
+
+/* Specific adjustment for About page header */
+.about-section.full-page .section-header {
+	margin-top: 30px;
+	/* Add additional top margin specifically for the About page */
+}
+
+/* Improve section header animation to account for new spacing */
+.section-header {
+	position: relative;
+	z-index: 2;
+	margin-bottom: var(--spacing-xl);
+	text-align: center;
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.8s var(--transition-smooth), transform 0.8s var(--transition-smooth);
+}
+
+/* Updated responsive adjustments */
+@media (max-width: 768px) {
+	.full-page {
+		padding-top: 100px;
+		/* Slightly less space on mobile but still enough */
+	}
+
+	.about-section.full-page .section-header {
+		margin-top: 20px;
+		/* Less margin on mobile */
+	}
+}
+
+@media (max-width: 480px) {
+	.full-page {
+		padding-top: 90px;
+	}
+
+	.about-section.full-page .section-header {
+		margin-top: 15px;
+	}
+
+	.section-header h2 {
+		font-size: 2rem;
+		/* Smaller font size on mobile */
 	}
 }

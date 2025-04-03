@@ -30,6 +30,13 @@ function PageTransition({ children }) {
     }
   }, [location, displayLocation]);
 
+  // Ensure body scroll is enabled when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <div
       className={`page-transition ${transitionStage}`}

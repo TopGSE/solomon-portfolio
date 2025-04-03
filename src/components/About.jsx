@@ -64,31 +64,12 @@ function About() {
                   software, like great music, requires both technical excellence
                   and creative problem-solving.
                 </p>
-
-                <div className="about-highlights">
-                  <div className="highlight-item">
-                    <div className="highlight-icon">
-                      <span className="music-code-icon">♪&lt;/&gt;</span>
-                    </div>
-                    <div className="highlight-content">
-                      <h4>Dual Expertise</h4>
-                      <p>
-                        Bringing together technical knowledge with musical
-                        creativity
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="highlight-item">
-                    <div className="highlight-icon">
-                      <span className="music-code-icon">⚡</span>
-                    </div>
-                    <div className="highlight-content">
-                      <h4>Modern Solutions</h4>
-                      <p>Creating efficient and elegant applications</p>
-                    </div>
-                  </div>
-                </div>
+                <p>
+                  When I'm not coding, you'll find me exploring new
+                  technologies, contributing to open-source projects, or
+                  composing music to maintain the perfect balance between
+                  technical and creative pursuits.
+                </p>
               </div>
             </div>
 
