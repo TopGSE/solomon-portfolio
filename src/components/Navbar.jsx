@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,12 +21,16 @@ function Navbar() {
     };
   }, []);
 
+  const handleNavClick = () => {
+    setMenuOpen(false);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="container nav-container">
-        <a href="#home" className="logo">
+        <Link to="/" className="logo" onClick={handleNavClick}>
           Solomon
-        </a>
+        </Link>
 
         <div
           className={`menu-toggle ${menuOpen ? "active" : ""}`}
@@ -37,29 +43,37 @@ function Navbar() {
 
         <ul className={`nav-links ${menuOpen ? "active" : ""}`}>
           <li>
-            <a href="#home" onClick={() => setMenuOpen(false)}>
+            <Link
+              to="/"
+              onClick={handleNavClick}
+              className={location.pathname === "/" ? "active" : ""}
+            >
               Home
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#about" onClick={() => setMenuOpen(false)}>
+            <Link
+              to="/about"
+              onClick={handleNavClick}
+              className={location.pathname === "/about" ? "active" : ""}
+            >
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#projects" onClick={() => setMenuOpen(false)}>
+            <Link to="/projects" onClick={handleNavClick}>
               Projects
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#skills" onClick={() => setMenuOpen(false)}>
+            <Link to="/skills" onClick={handleNavClick}>
               Skills
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>
+            <Link to="/contact" onClick={handleNavClick}>
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

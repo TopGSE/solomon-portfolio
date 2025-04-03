@@ -3,6 +3,8 @@
 	margin: 0;
 	padding: 0;
 	text-align: left;
+	perspective: 1200px;
+	overflow-x: hidden;
 }
 
 .logo {
@@ -44,7 +46,7 @@
 	color: #888;
 }
 
-/* Navbar Styles */
+/* Enhanced Navbar transition */
 .navbar {
 	position: fixed;
 	top: 0;
@@ -53,7 +55,7 @@
 	background-color: transparent;
 	padding: 1.5rem 0;
 	z-index: 1000;
-	transition: all 0.4s ease;
+	transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .navbar.scrolled {
@@ -92,11 +94,13 @@
 	gap: 2rem;
 }
 
+/* Navigation link transition enhancement */
 .nav-links a {
 	color: var(--text-primary);
 	font-weight: 500;
 	padding: 0.5rem 0;
 	position: relative;
+	transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .nav-links a::after {
@@ -107,10 +111,23 @@
 	width: 0;
 	height: 2px;
 	background-color: var(--primary-color);
-	transition: width 0.3s ease;
+	transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+	transform-origin: left;
+}
+
+.nav-links a:hover {
+	transform: translateY(-2px);
 }
 
 .nav-links a:hover::after {
+	width: 100%;
+}
+
+.nav-links a.active {
+	color: var(--primary-color);
+}
+
+.nav-links a.active::after {
 	width: 100%;
 }
 
@@ -132,7 +149,8 @@
 .hero-section {
 	min-height: 100vh;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
+	/* Allow for the transition element to extend beyond */
 	padding: 0;
 	display: flex;
 	align-items: center;
@@ -401,6 +419,12 @@
 /* About Section */
 .about-section {
 	background-color: var(--bg-secondary);
+	padding: var(--spacing-xxl) 0;
+	position: relative;
+	overflow: hidden;
+	margin-top: 0;
+	position: relative;
+	z-index: 2;
 }
 
 /* About Section - Updated Design with modern layout */
@@ -422,7 +446,8 @@
 	align-items: start;
 	opacity: 0;
 	transform: translateY(30px);
-	transition: opacity 0.8s ease, transform 0.8s ease;
+	transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+		transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 	width: 100%;
 }
 
@@ -578,11 +603,46 @@
 	font-size: 0.9rem;
 	font-weight: 500;
 	transition: all 0.3s ease;
+	opacity: 0;
+	transform: translateY(10px);
+	animation: fadeInUp 0.5s forwards;
+	animation-play-state: paused;
 }
 
-.skill-tag:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+.about-content.visible .skill-tag {
+	animation-play-state: running;
+}
+
+.skill-tag:nth-child(1) {
+	animation-delay: 0.5s;
+}
+
+.skill-tag:nth-child(2) {
+	animation-delay: 0.6s;
+}
+
+.skill-tag:nth-child(3) {
+	animation-delay: 0.7s;
+}
+
+.skill-tag:nth-child(4) {
+	animation-delay: 0.8s;
+}
+
+.skill-tag:nth-child(5) {
+	animation-delay: 0.9s;
+}
+
+@keyframes fadeInUp {
+	from {
+		opacity: 0;
+		transform: translateY(10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
 }
 
 .music-tag {
@@ -620,6 +680,26 @@
 	display: flex;
 	gap: var(--spacing-md);
 	margin-top: auto;
+}
+
+.about-cta .btn {
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.5s ease, transform 0.5s ease,
+		background-color 0.3s ease, color 0.3s ease,
+		box-shadow 0.3s ease;
+}
+
+.about-content.visible .about-cta .btn:nth-child(1) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.8s;
+}
+
+.about-content.visible .about-cta .btn:nth-child(2) {
+	opacity: 1;
+	transform: translateY(0);
+	transition-delay: 0.9s;
 }
 
 /* Add responsive styles for the About section */
@@ -1928,4 +2008,302 @@
 .about-image-wrapper {
 	background: transparent;
 	box-shadow: none;
+}
+
+/* Section transitions */
+.section-transition-top {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	background: linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+	transform: translateY(-99px);
+	z-index: -1;
+}
+
+/* Scroll indicator styling */
+.scroll-indicator {
+	margin-top: var(--spacing-xl);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	opacity: 0.7;
+	transition: all 0.3s ease;
+	position: absolute;
+	bottom: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.scroll-indicator:hover {
+	opacity: 1;
+}
+
+.mouse {
+	width: 26px;
+	height: 40px;
+	border: 2px solid var(--primary-color);
+	border-radius: 20px;
+	position: relative;
+	margin-bottom: 8px;
+}
+
+.wheel {
+	width: 4px;
+	height: 8px;
+	background-color: var(--primary-color);
+	position: absolute;
+	top: 5px;
+	left: 50%;
+	transform: translateX(-50%);
+	border-radius: 4px;
+	animation: scrollWheel 2s infinite;
+}
+
+@keyframes scrollWheel {
+	0% {
+		opacity: 1;
+		transform: translateX(-50%) translateY(0);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateX(-50%) translateY(15px);
+	}
+}
+
+.chevrons {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.chevron {
+	width: 16px;
+	height: 8px;
+	opacity: 0;
+	transform: scale(0.5);
+	animation: moveDown 3s ease-out infinite;
+}
+
+.chevron:before,
+.chevron:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	height: 100%;
+	width: 50%;
+	background: var(--primary-color);
+}
+
+.chevron:before {
+	left: 0;
+	transform: skewY(30deg);
+}
+
+.chevron:after {
+	right: 0;
+	width: 50%;
+	transform: skewY(-30deg);
+}
+
+.chevron:first-child {
+	animation-delay: 0s;
+}
+
+.chevron:nth-child(2) {
+	animation-delay: 0.3s;
+}
+
+.chevron:nth-child(3) {
+	animation-delay: 0.6s;
+}
+
+@keyframes moveDown {
+	25% {
+		opacity: 1;
+		transform: translateY(0px) scale(0.9);
+	}
+
+	75% {
+		opacity: 0;
+		transform: translateY(20px) scale(0.8);
+	}
+
+	100% {
+		opacity: 0;
+		transform: translateY(30px) scale(0.7);
+	}
+}
+
+/* Update section spacing to create better transitions */
+.hero-section {
+	min-height: 100vh;
+	position: relative;
+	overflow: visible;
+	/* Allow for the transition element to extend beyond */
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: var(--bg-primary);
+}
+
+.about-section {
+	background-color: var(--bg-secondary);
+	padding: var(--spacing-xxl) 0;
+	position: relative;
+	overflow: hidden;
+	margin-top: 0;
+	position: relative;
+	z-index: 2;
+}
+
+/* Improve scroll behavior */
+html {
+	scroll-padding-top: 80px;
+	/* Adjust to match your navbar height */
+	scroll-behavior: smooth;
+}
+
+/* Update the button in hero section to add scroll focus effect */
+.hero-cta .btn-primary {
+	position: relative;
+	overflow: hidden;
+	transition: all 0.4s ease;
+}
+
+.hero-cta .btn-primary::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(255, 255, 255, 0.1);
+	transform: translateY(100%);
+	transition: transform 0.4s ease;
+	z-index: -1;
+}
+
+.hero-cta .btn-primary:hover::after {
+	transform: translateY(0);
+}
+
+/* Page Transitions */
+.page-transition {
+	position: relative;
+	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.page-transition.fadeIn {
+	animation: fadeIn 0.6s forwards;
+}
+
+.page-transition.fadeOut {
+	animation: fadeOut 0.6s forwards;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+		transform: translateY(20px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+}
+
+/* Full page styling */
+.page-container {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+}
+
+.full-page {
+	padding-top: 100px;
+	/* Account for navbar */
+	min-height: calc(100vh - 100px);
+	/* Full page minus navbar and padding */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+}
+
+/* Active nav link styling */
+.nav-links a.active {
+	color: var(--primary-color);
+}
+
+.nav-links a.active::after {
+	width: 100%;
+}
+
+/* Updated Page Transitions - Sleek sliding effect */
+.page-transition {
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.page-transition.fadeIn {
+	animation: slideInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.page-transition.fadeOut {
+	animation: slideOutLeft 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInUp {
+	from {
+		opacity: 0;
+		transform: translateY(40px);
+		clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+	}
+
+	20% {
+		clip-path: polygon(0 0, 100% 0, 100% 20%, 0 20%);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+}
+
+@keyframes slideOutLeft {
+	from {
+		opacity: 1;
+		transform: translateX(0);
+		clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+	}
+
+	to {
+		opacity: 0;
+		transform: translateX(-40px);
+		clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+	}
 }

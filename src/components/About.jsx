@@ -14,7 +14,7 @@ function About() {
         }
       },
       {
-        threshold: 0.2,
+        threshold: 0.1, // Lower threshold for quicker activation
       }
     );
 
@@ -31,6 +31,7 @@ function About() {
 
   return (
     <section id="about" className="about-section" ref={sectionRef}>
+      <div className="section-transition-top"></div>
       <div className="content-container">
         <div className={`section-header ${isVisible ? "animate-fade-in" : ""}`}>
           <h2>About Me</h2>

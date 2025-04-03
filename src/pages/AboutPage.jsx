@@ -1,0 +1,192 @@
+import { useState, useEffect, useRef } from "react";
+import Navbar from "../components/Navbar";
+
+function AboutPage() {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    // Enable animation when component mounts
+    setIsVisible(true);
+
+    // Scroll to top when page loads
+    window.scrollTo(0, 0);
+
+    // Add page transition class to body
+    document.body.classList.add("page-transition");
+
+    return () => {
+      document.body.classList.remove("page-transition");
+    };
+  }, []);
+
+  return (
+    <>
+      <Navbar />
+      <div className="page-container">
+        <section
+          id="about"
+          className="about-section full-page"
+          ref={sectionRef}
+        >
+          <div className="content-container">
+            <div
+              className={`section-header ${isVisible ? "animate-fade-in" : ""}`}
+            >
+              <h2>About Me</h2>
+              <div className="section-divider"></div>
+            </div>
+
+            <div className="about-wrapper">
+              <div className={`about-content ${isVisible ? "visible" : ""}`}>
+                <div className="about-bio-main">
+                  <div className="about-intro">
+                    <h3 className="about-subtitle">
+                      A Software Developer with a Musician's Perspective
+                    </h3>
+                    <p className="about-lead-text">
+                      Creating harmonious digital experiences with code that's
+                      as structured and purposeful as a musical composition.
+                    </p>
+                  </div>
+
+                  <div className="about-bio-content">
+                    <p>
+                      I'm a passionate software developer with a unique approach
+                      to coding that's shaped by my background in music. Just as
+                      music requires both technical precision and creative
+                      expression, I apply the same mentality to building digital
+                      solutions.
+                    </p>
+                    <p>
+                      My development philosophy centers around creating
+                      harmonious code—structured, rhythmic, and purposeful. I
+                      believe great software, like great music, requires both
+                      technical excellence and creative problem-solving.
+                    </p>
+
+                    <div className="about-highlights">
+                      <div className="highlight-item">
+                        <div className="highlight-icon">
+                          <span className="music-code-icon">♪&lt;/&gt;</span>
+                        </div>
+                        <div className="highlight-content">
+                          <h4>Dual Expertise</h4>
+                          <p>
+                            Bringing together technical knowledge with musical
+                            creativity
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="highlight-item">
+                        <div className="highlight-icon">
+                          <span className="music-code-icon">⚡</span>
+                        </div>
+                        <div className="highlight-content">
+                          <h4>Modern Solutions</h4>
+                          <p>Creating efficient and elegant applications</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="about-details-container">
+                  <div className="skills-section">
+                    <div className="section-label">
+                      <span className="label-line"></span>
+                      <h4>My Expertise</h4>
+                    </div>
+
+                    <div className="skills-container">
+                      <div className="skills-group">
+                        <h5>Development</h5>
+                        <div className="skill-tags">
+                          <span className="skill-tag">React</span>
+                          <span className="skill-tag">JavaScript</span>
+                          <span className="skill-tag">Node.js</span>
+                          <span className="skill-tag">TypeScript</span>
+                          <span className="skill-tag">HTML/CSS</span>
+                        </div>
+                      </div>
+
+                      <div className="skills-group">
+                        <h5>Music</h5>
+                        <div className="skill-tags">
+                          <span className="skill-tag music-tag">
+                            Composition
+                          </span>
+                          <span className="skill-tag music-tag">Piano</span>
+                          <span className="skill-tag music-tag">
+                            Production
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="personal-details">
+                    <div className="section-label">
+                      <span className="label-line"></span>
+                      <h4>Personal Details</h4>
+                    </div>
+
+                    <div className="about-details">
+                      <div className="detail-item">
+                        <span className="detail-title">Name:</span>
+                        <span className="detail-value">Solomon</span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-title">Email:</span>
+                        <span className="detail-value">
+                          your.email@example.com
+                        </span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-title">Location:</span>
+                        <span className="detail-value">Your Location</span>
+                      </div>
+                      <div className="detail-item">
+                        <span className="detail-title">Available for:</span>
+                        <span className="detail-value">
+                          Freelance & Full-time
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="about-cta">
+                    <a href="/contact" className="btn btn-primary">
+                      <span>Download CV</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                      </svg>
+                    </a>
+                    <a href="/" className="btn btn-outline">
+                      <span>Back to Home</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
+}
+
+export default AboutPage;

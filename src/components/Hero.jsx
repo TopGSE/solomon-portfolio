@@ -1,9 +1,11 @@
 import { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import profileImage from "../assets/images/398687690_2307871489408256_5798399323161767913_n.jpg";
 
 function Hero() {
   const [isLoaded, setIsLoaded] = useState(false);
   const audioVisualizerRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsLoaded(true);
@@ -71,6 +73,12 @@ function Hero() {
     }
   }, []);
 
+  // Navigate to About page
+  const navigateToAbout = (e) => {
+    e.preventDefault();
+    navigate("/about");
+  };
+
   return (
     <section id="home" className="hero-section">
       <canvas ref={audioVisualizerRef} className="audio-visualizer"></canvas>
@@ -113,9 +121,24 @@ function Hero() {
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </a>
-            <a href="#contact" className="btn btn-outline">
-              <span>Get in Touch</span>
+            <a
+              href="/about"
+              className="btn btn-outline"
+              onClick={navigateToAbout}
+            >
+              <span>About Me</span>
             </a>
+          </div>
+
+          <div className="scroll-indicator" onClick={navigateToAbout}>
+            <div className="mouse">
+              <div className="wheel"></div>
+            </div>
+            <div className="chevrons">
+              <div className="chevron"></div>
+              <div className="chevron"></div>
+              <div className="chevron"></div>
+            </div>
           </div>
         </div>
       </div>
