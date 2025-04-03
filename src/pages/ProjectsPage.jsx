@@ -45,7 +45,7 @@ function ProjectsPage() {
       image: projectImg2,
       url: "",
       github: null, // No public GitHub repo for this one
-      tags: ["HTML", "CSS", "JavaScript", "WordPress"],
+      tags: ["HTML", "CSS", "JavaScript", "Responsive"],
       category: "web",
     },
   ];
