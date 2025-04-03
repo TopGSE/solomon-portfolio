@@ -3,10 +3,9 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
-import "./App.css";
+import ProjectsPage from "./pages/ProjectsPage";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
+import "./App.css";
 
 // Page transition component
 function PageTransition({ children }) {
@@ -75,6 +74,14 @@ function App() {
           element={
             <PageTransition>
               <AboutPage />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/projects"
+          element={
+            <PageTransition>
+              <ProjectsPage />
             </PageTransition>
           }
         />
