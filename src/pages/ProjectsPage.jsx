@@ -48,6 +48,17 @@ function ProjectsPage() {
       tags: ["HTML", "CSS", "JavaScript", "Responsive"],
       category: "web",
     },
+    {
+      id: 3,
+      title: "Piano With Solomon",
+      description:
+        "A platform dedicated to piano lessons and music education, showcasing musical compositions and teaching resources.",
+      image: projectImg2, // You should add a proper image for this project
+      url: "https://www.pianowithsolomon.be",
+      github: null,
+      tags: ["Music", "Education", "Piano", "Web Design"],
+      category: "web",
+    },
   ];
 
   const filteredProjects =
