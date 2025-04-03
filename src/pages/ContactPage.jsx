@@ -126,8 +126,8 @@ function ContactPage() {
                   </div>
                   <div className="contact-card-text">
                     <h4>Email</h4>
-                    <a href="mailto:your.email@example.com">
-                      your.email@example.com
+                    <a href="mailto:solomonekov@gmail.com">
+                      solomonekov@gmail.com
                     </a>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ function ContactPage() {
                   </div>
                   <div className="contact-card-text">
                     <h4>Location</h4>
-                    <p>Amsterdam, Netherlands</p>
+                    <p>Ghent, Belgium</p>
                   </div>
                 </div>
 
