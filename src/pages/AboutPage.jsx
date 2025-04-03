@@ -121,12 +121,12 @@ function AboutPage() {
                       <div className="detail-item">
                         <span className="detail-title">Email:</span>
                         <span className="detail-value">
-                          your.email@example.com
+                          solomonekov@gmail.com
                         </span>
                       </div>
                       <div className="detail-item">
                         <span className="detail-title">Location:</span>
-                        <span className="detail-value">Your Location</span>
+                        <span className="detail-value">Ghent, Belgium</span>
                       </div>
                       <div className="detail-item">
                         <span className="detail-title">Available for:</span>
