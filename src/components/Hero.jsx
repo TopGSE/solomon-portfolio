@@ -94,7 +94,7 @@ function Hero() {
           <div className="hero-heading-block">
             <p className="hero-overline">Software Developer & Musician</p>
             <h1 className="hero-title">
-              <span className="text-animate">Beba ik hou echt veel vanjou</span>
+              <span className="text-animate">Solomon</span>
             </h1>
             <div className="rhythm-dots">
               <span></span>
