@@ -3071,7 +3071,6 @@ form-group textarea:focus {
 
 .skills-lead-text {
 	font-size: 1.15rem;
-	color: #333;
 	/* Darkened for better contrast */
 	line-height: 1.7;
 	margin-bottom: var(--spacing-md);
@@ -3146,7 +3145,7 @@ form-group textarea:focus {
 .skills-display {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-lg);
+	gap: var (--spacing-lg);
 }
 
 .skill-item {
@@ -3196,7 +3195,6 @@ form-group textarea:focus {
 
 .skill-description {
 	font-size: 0.9rem;
-	color: #333;
 	/* Darkened for better contrast */
 	margin-bottom: 0;
 }
@@ -3273,7 +3271,6 @@ form-group textarea:focus {
 }
 
 .competency-card p {
-	color: #333;
 	/* Darkened for better contrast */
 	line-height: 1.6;
 	margin-bottom: 0;
@@ -3622,7 +3619,7 @@ form-group textarea:focus {
 .skill-categories-section {
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-lg);
+	gap: var (--spacing-lg);
 }
 
 .skill-categories-grid {
@@ -3909,7 +3906,6 @@ form-group textarea:focus {
 }
 
 .skills-intro-content-alt p {
-	color: #333;
 	font-size: 1.05rem;
 	line-height: 1.6;
 	margin-bottom: 0;
@@ -4006,7 +4002,6 @@ form-group textarea:focus {
 .skill-name-alt {
 	font-size: 1rem;
 	font-weight: 600;
-	color: #333;
 }
 
 .skill-level-alt {
@@ -4663,4 +4658,253 @@ form-group textarea:focus {
 	.cv-form .form-group {
 		margin-bottom: 0.75rem;
 	}
+}
+
+/* Dark Mode Theme - Improved Contrast */
+:root {
+	/* Dark theme colors with better contrast */
+	--bg-primary: #121212;
+	--bg-secondary: #1F2937;
+	--text-primary: #FFFFFF;
+	/* Brighter white for maximum contrast */
+	--text-secondary: #E5E7EB;
+	/* Light gray that's still readable */
+	--primary-color: #A594FF;
+	/* Even brighter purple for better visibility */
+	--primary-dark: #8A7BFF;
+	--secondary-color: #5CFFE7;
+	/* Brighter teal */
+	--accent-color: #FFB07D;
+	/* Brighter orange */
+	--gradient-1: linear-gradient(135deg, #A594FF 0%, #C5BAFF 100%);
+	--gradient-2: linear-gradient(135deg, #5CFFE7 0%, #B3FFF5 100%);
+
+	/* Darker card and element backgrounds for better contrast */
+	--card-bg: #2C3440;
+	--input-bg: #3A4658;
+	--border-color: #4F5A6E;
+}
+
+/* Override media query in index.css */
+@media (prefers-color-scheme: light) {
+	:root {
+		/* Force dark theme with better contrast */
+		--bg-primary: #121212;
+		--bg-secondary: #1F2937;
+		--text-primary: #FFFFFF;
+		--text-secondary: #E5E7EB;
+		--card-bg: #2C3440;
+		--input-bg: #3A4658;
+		--border-color: #4F5A6E;
+	}
+}
+
+/* Navbar with improved contrast */
+
+
+.navbar.scrolled {
+	background-color: rgba(18, 18, 18, 0.98);
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Make all card backgrounds darker with better contrast */
+.project-card,
+.skill-category-card,
+.competency-card,
+.skills-intro,
+.contact-form-container,
+.contact-card,
+.tabs-container,
+.primary-skill-card,
+.current-learning-section,
+.skills-cta-new,
+.skills-intro-alt,
+.skill-category-alt,
+.currently-learning-alt,
+.skills-cta-alt,
+.modal-content {
+	background-color: var(--card-bg);
+	border-color: var(--border-color);
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* All text elements with improved contrast */
+.project-title,
+.skill-category-title,
+.contact-card-text h4,
+.skills-cta-alt h3,
+.skills-intro-content-alt h3,
+.skills-section-title,
+.modal-content h3,
+.section-header h2,
+.competency-card h4,
+.currently-learning-alt h3,
+.skills-cta-new h3,
+.about-subtitle,
+.contact-intro h3 {
+	color: #FFFFFF;
+}
+
+/* Secondary text with improved contrast */
+.project-description,
+.skill-description,
+.contact-card-text p,
+.modal-content p,
+.skills-intro-content p,
+.competency-card p,
+.about-bio-content p,
+.contact-lead-text,
+.skills-lead-text,
+.section-subtitle,
+.hero-description,
+.detail-value,
+.skill-name-text {
+	color: #D9DCE3;
+	/* Lighter than before for better readability */
+}
+
+/* Make skill level text more visible */
+.skill-level,
+.skill-level-alt,
+.skill-level-percent {
+	color: var(--primary-color);
+	font-weight: 700;
+}
+
+/* Improved contrast for detail titles */
+.detail-title {
+	color: #A6ADB9;
+}
+
+/* Project tags and skill tags with better contrast */
+.project-tag,
+.skill-tag,
+.learning-tag-new,
+.learning-tag-alt {
+	background-color: rgba(165, 148, 255, 0.25);
+	color: #C5BAFF;
+	border-color: rgba(165, 148, 255, 0.5);
+}
+
+/* Learning tag hover state */
+.learning-tag-new:hover,
+.learning-tag-alt:hover,
+.project-tag:hover {
+	background-color: rgba(165, 148, 255, 0.35);
+}
+
+/* Skill bars with better contrast */
+.skill-bar-container,
+.skill-progress-container-alt {
+	background-color: rgba(255, 255, 255, 0.15);
+}
+
+.skill-bar,
+.skill-progress-bar-alt,
+.level-bar {
+	background: var(--gradient-1);
+}
+
+/* Form inputs with better contrast */
+.form-group input,
+.form-group textarea,
+.cv-form input {
+	background-color: var(--input-bg);
+	border-color: var(--border-color);
+	color: #FFFFFF;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder,
+.cv-form input::placeholder {
+	color: #A6ADB9;
+}
+
+/* Form labels with better contrast */
+.form-group label,
+.cv-form label {
+	color: #E5E7EB;
+}
+
+/* Modal backdrop darker */
+.modal-backdrop {
+	background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Button hover states with better visibility */
+.btn-outline:hover {
+	background-color: var(--primary-color);
+	color: #121212;
+	/* Dark text on light button for better contrast */
+	font-weight: 600;
+}
+
+/* Code visual backgrounds */
+.skills-code-visual {
+	background: #282A36;
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.code-content {
+	background-color: #282A36;
+}
+
+/* Toast with better contrast */
+.custom-toast {
+	background-color: var(--card-bg);
+	color: #FFFFFF;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Improve readability of navigation links */
+.nav-links a {
+	color: #E5E7EB;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+	color: var(--primary-color);
+}
+
+/* Mobile nav menu */
+.nav-links.active {
+	background-color: rgba(18, 18, 18, 0.98);
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Special component styling for specific sections */
+.competency-card::after {
+	background: var(--gradient-1);
+}
+
+.category-header-alt:after,
+.skill-category-title::after,
+.skills-section-title::after {
+	background-color: var(--primary-color);
+}
+
+.category-icon-alt {
+	background-color: rgba(165, 148, 255, 0.3);
+	color: var(--primary-color);
+}
+
+.skills-intro-alt {
+	border-left-color: var(--primary-color);
+}
+
+/* High contrast for active tabs/filters */
+.filter-btn.active {
+	background-color: var(--primary-color);
+	color: #121212;
+	/* Dark text on light background */
+	font-weight: 600;
+}
+
+.filter-btn {
+	color: var(--text-secondary);
+}
+
+.filter-btn:hover {
+	background-color: rgba(165, 148, 255, 0.3);
+	color: var(--primary-color);
 }
