@@ -10,7 +10,6 @@ function Hero() {
   useEffect(() => {
     setIsLoaded(true);
 
-    // Audio visualizer effect (represents your musical side subtly)
     const canvas = audioVisualizerRef.current;
     if (canvas) {
       const ctx = canvas.getContext("2d");
@@ -27,7 +26,6 @@ function Hero() {
       resizeCanvas();
       window.addEventListener("resize", resizeCanvas);
 
-      // Create audio-inspired animation
       const bars = [];
       const barCount = 40;
 
@@ -44,9 +42,8 @@ function Hero() {
         ctx.clearRect(0, 0, width, height);
 
         bars.forEach((bar, i) => {
-          // Create subtle audio-like visualization
           const barWidth = width / barCount - 2;
-          const hue = 220 + i * (40 / barCount); // Blue to purple gradient
+          const hue = 220 + i * (40 / barCount);
 
           bar.height += bar.speed * bar.direction;
           if (bar.height > 40 || bar.height < 5) {
@@ -73,13 +70,11 @@ function Hero() {
     }
   }, []);
 
-  // Navigate to About page
   const navigateToAbout = (e) => {
     e.preventDefault();
     navigate("/about");
   };
 
-  // Navigate to Projects page
   const navigateToProjects = (e) => {
     e.preventDefault();
     navigate("/projects");

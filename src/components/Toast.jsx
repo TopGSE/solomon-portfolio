@@ -6,7 +6,7 @@ function Toast({ message, type, onClose, duration = 3000 }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-      setTimeout(onClose, 300); // Allow time for fade-out animation
+      setTimeout(onClose, 300);
     }, duration);
 
     return () => clearTimeout(timer);

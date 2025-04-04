@@ -14,7 +14,7 @@ function About() {
         }
       },
       {
-        threshold: 0.1, // Lower threshold for quicker activation
+        threshold: 0.1,
       }
     );
 
